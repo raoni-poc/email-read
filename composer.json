@@ -1,0 +1,5 @@
+{
+    "require": {
+        "zendframework/zend-servicemanager": "^3.4"
+    }
+}
