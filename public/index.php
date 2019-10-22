@@ -1,7 +1,13 @@
 <?php
-set_time_limit(0);
 
 use App\App;
+use App\Config;
+use App\Factory\ConfigFactory;
+use App\Modules\IMAP\Factory\IMAPFactory;
+use App\Modules\IMAP\HostConfig\GmailHostConfig;
+use App\Modules\IMAP\IMAP;
+use Zend\ServiceManager\Factory\InvokableFactory;
+use Zend\ServiceManager\ServiceManager;
 
 session_start();
 
@@ -24,6 +30,16 @@ if (php_sapi_name() === 'cli-server') {
 //Composer autoloading
 include __DIR__ . '/../vendor/autoload.php';
 
-App::run();
+
+//Zend Service Manager
+$serviceManager = new ServiceManager([
+    'factories' => [
+        Config::class => ConfigFactory::class,
+        IMAP::class => IMAPFactory::class,
+        GmailHostConfig::class => InvokableFactory::class,
+    ],
+]);
+
+App::run($serviceManager);
 
 ?>

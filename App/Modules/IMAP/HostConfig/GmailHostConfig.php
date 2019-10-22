@@ -4,7 +4,7 @@
 namespace App\Modules\IMAP\HostConfig;
 
 
-class GmailHostConfigConfig extends MailHostConfig
+class GmailHostConfig extends MailHostConfig
 {
     public function getIMAPHost(): string
     {
