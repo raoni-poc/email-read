@@ -3,6 +3,8 @@
 use App\App;
 use App\Config;
 use App\Factory\ConfigFactory;
+use App\Modules\IMAP\HandleEmails;
+use App\Modules\IMAP\Factory\EmailHandleFactory;
 use App\Modules\IMAP\Factory\IMAPFactory;
 use App\Modules\IMAP\HostConfig\GmailHostConfig;
 use App\Modules\IMAP\IMAP;
@@ -37,6 +39,7 @@ $serviceManager = new ServiceManager([
         Config::class => ConfigFactory::class,
         IMAP::class => IMAPFactory::class,
         GmailHostConfig::class => InvokableFactory::class,
+        HandleEmails::class => EmailHandleFactory::class
     ],
 ]);
 

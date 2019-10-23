@@ -4,5 +4,6 @@ return [
         'host' => 'GMAIL',
         'username' => 'raoniforapp@gmail.com',
         'password' => 'hc7QXCdFCqEFkEjsHg',
-    ]
+    ],
+    'path_to_save_attachment' => 'public/attachment_storage'
 ];
