@@ -3,6 +3,9 @@
 use App\App;
 use App\Config;
 use App\Factory\ConfigFactory;
+use App\Modules\IMAP\DecodeTamplate;
+use App\Modules\IMAP\DefaultTemplate;
+use App\Modules\IMAP\Factory\DefaultTamplateFactory;
 use App\Modules\IMAP\HandleEmails;
 use App\Modules\IMAP\Factory\EmailHandleFactory;
 use App\Modules\IMAP\Factory\IMAPFactory;
@@ -39,7 +42,9 @@ $serviceManager = new ServiceManager([
         Config::class => ConfigFactory::class,
         IMAP::class => IMAPFactory::class,
         GmailHostConfig::class => InvokableFactory::class,
-        HandleEmails::class => EmailHandleFactory::class
+        HandleEmails::class => EmailHandleFactory::class,
+        DecodeTamplate::class => InvokableFactory::class,
+        DefaultTemplate::class => DefaultTamplateFactory::class,
     ],
 ]);
 

@@ -15,6 +15,5 @@ class App
         $emails = $handleEmails->getAllInvoiceEmails();
         header('Content-Type: application/json; charset=utf-8');
         echo json_encode($emails);
-//        var_dump($emails);
     }
 }

@@ -5,6 +5,7 @@ namespace App\Modules\IMAP\Factory;
 
 
 use App\Config;
+use App\Modules\IMAP\DecodeTamplate;
 use App\Modules\IMAP\DefaultTemplate;
 use App\Modules\IMAP\HandleEmails;
 use App\Modules\IMAP\HostConfig\GmailHostConfig;
@@ -13,15 +14,12 @@ use App\Modules\IMAP\Interfaces\hasIMAPHost;
 use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\FactoryInterface;
 
-class EmailHandleFactory implements FactoryInterface
+class DefaultTamplateFactory implements FactoryInterface
 {
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        /** @var Config $config */
-        $config = $container->get(Config::class);
-        $imap = $container->get(IMAP::class);
-        /** @var DefaultTemplate $templateTools */
-        $templateTools = $container->get(DefaultTemplate::class);
-        return new HandleEmails($imap, $templateTools, $config);
+        /** @var DecodeTamplate $config */
+        $decoder = $container->get(DecodeTamplate::class);
+        return new DefaultTemplate($decoder);
     }
 }
