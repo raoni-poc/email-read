@@ -16,7 +16,9 @@ class EmailHandleFactory implements FactoryInterface
 {
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
+        /** @var Config $config */
+        $config = $container->get(Config::class);
         $imap = $container->get(IMAP::class);
-        return new HandleEmails($imap);
+        return new HandleEmails($imap, $config);
     }
 }

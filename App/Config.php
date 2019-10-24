@@ -39,4 +39,18 @@ class Config implements IMAPCredentials, hasIMAPHost
             return (string)$this->config['IMAP']['host'];
         }
     }
+
+    public function getPathToSaveAttachment(): string
+    {
+        if (isset($this->config['path_to_save_attachment'])) {
+            return (string)$this->config['path_to_save_attachment'];
+        }
+    }
+
+    public function getHost(): string
+    {
+        if (isset($this->config['host'])) {
+            return (string)$this->config['host'];
+        }
+    }
 }

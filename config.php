@@ -5,5 +5,6 @@ return [
         'username' => 'raoniforapp@gmail.com',
         'password' => 'hc7QXCdFCqEFkEjsHg',
     ],
-    'path_to_save_attachment' => 'public/attachment_storage'
+    'path_to_save_attachment' => 'public/attachment_storage',
+    'host' => 'http://localhost:8000/',
 ];
